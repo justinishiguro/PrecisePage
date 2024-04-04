@@ -7,20 +7,19 @@ function Signup() {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrorMessage('');
+    setErrorMessage("");
     axios
       .post("http://localhost:3001/register", { name, email, password })
       .then((result) => {
         console.log(result);
-        if (result.data === "Email already exists"){
+        if (result.data === "Email already exists") {
           setErrorMessage("EMAIL ALREADY EXISTS");
-        }
-        else {
+        } else {
           navigate("/login");
         }
       })
@@ -32,8 +31,9 @@ function Signup() {
       <div className="bg-white p-3 rounded w-25">
         <h2>Register</h2>
         <form onSubmit={handleSubmit}>
-            {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-          {" "}
+          {errorMessage && (
+            <div className="alert alert-danger">{errorMessage}</div>
+          )}{" "}
           {/* sent data to server side */}
           <div className="mb-3">
             <label htmlFor="email">

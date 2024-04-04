@@ -14,7 +14,8 @@ function Login() {
     axios
       .post("http://localhost:3001/login", { email, password })
       .then((result) => {
-        if (result.data === "Success") {
+        if (result.data.message === "Success") {
+          localStorage.setItem("token", result.data.token);
           navigate("/home");
         }
       })

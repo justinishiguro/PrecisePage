@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -5,7 +6,7 @@ const EmployeeModel = require("./models/Employee");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const jwt = require("jsonwebtoken");
-const jwtSecret = "your_jwt_secret";
+const jwtSecret = process.env.JWT_SECRET;
 
 const app = express();
 app.use(express.json());

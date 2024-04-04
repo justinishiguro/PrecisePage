@@ -20,7 +20,7 @@ function Signup() {
         if (result.data === "Email already exists") {
           setErrorMessage("EMAIL ALREADY EXISTS");
         } else {
-          navigate("/login");
+          navigate("/");
         }
       })
       .catch((err) => console.log(err));
@@ -81,7 +81,7 @@ function Signup() {
         </form>
         <p>Already Have an Account</p>
         <Link
-          to="/login"
+          to="/"
           className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none"
         >
           Login

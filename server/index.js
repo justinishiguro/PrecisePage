@@ -24,7 +24,7 @@ app.post("/login", (req, res) => {
             return res.json(err);
           }
           if (result) {
-            const token = jwt.sign({ email: user.email }, jwtSecret, {
+            const token = jwt.sign({ email: user.email, name: user.name }, jwtSecret, {
               expiresIn: "1h",
             });
             return res.json({ message: "Success", token: token });
